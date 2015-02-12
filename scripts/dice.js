@@ -38,6 +38,8 @@ var dice = (function(){
      * unsuccessful, throws |PEG.parser.SyntaxError| describing the error.
      */
     parse: function(input, startRule) {
+      var intermediates = this.intermediates; // keep a reference - Cindy
+
       var parseFunctions = {
         "additive": parse_additive,
         "multiplicative": parse_multiplicative,
@@ -238,10 +240,10 @@ var dice = (function(){
         if (result0 !== null) {
           result0 = (function(offset, left, right) {
             var sum = 0;
-            this.intermediates[offset] = {d: right, rolls: []};
+            intermediates[offset] = {d: right, rolls: []};
             for (var i = 0; i < left; i++) {
               var roll = Math.ceil(MT.random()*right);
-              this.intermediates[offset].rolls.push(roll);
+              intermediates[offset].rolls.push(roll);
               sum += roll;
             }
             return sum;
@@ -440,7 +442,7 @@ var dice = (function(){
           errorPosition.column
         );
       }
-      
+
       return result;
     },
     
