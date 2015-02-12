@@ -1,8 +1,8 @@
 ;(function () {
 
-	var Roll = function (dice, input) {
+	var Roll = function (dice, input, el) {
 		this.dice = dice;
-		this.$el = this.$('body');
+		this.$el = el ? $(el) : $('body');
 		this.$ = this.$el.find.bind(this.$el);
 
 		this.roll(input);
@@ -32,7 +32,7 @@
 		}
 	};
 
-	Roll.prototype.parse = function () {
+	Roll.prototype.parse = function (input) {
 		try {
 			var result = this.dice.parse(input);
 			return result;
@@ -62,7 +62,7 @@
 		var $message = $('<header>').html('Sorry, Roll didn\'t understand <strong>' + input + '</strong>.'),
 				$output = $('<pre>').html(e.message);
 
-		if (e instanceof module.dice.SyntaxError) {
+		if (e instanceof dice.SyntaxError) {
 			var spaces = '',
 					message = 'Expected one of the following: <em>' + e.expected.join('</em>, <em>') + '</em>' + '\n';
 			for (var i = 0; i < e.offset; i++) spaces = spaces + ' ';
