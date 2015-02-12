@@ -1,10 +1,7 @@
 ;(function () {
 
-	var Roll = function (dice, input, el) {
+	var Roll = function (dice, input) {
 		this.dice = dice;
-		this.$el = el ? $(el) : $('body');
-		this.$ = this.$el.find.bind(this.$el);
-
 		this.roll(input);
 		return this;
 	};
@@ -41,17 +38,17 @@
 		}
 	};
 
-	Roll.prototype.setTitle = function (text) { this.$('title').html('Roll ' + text); };
+	Roll.prototype.setTitle = function (text) { $('title').html('Roll ' + text); };
 
 	Roll.prototype.setInput = function (input, command) {
-		this.$('#input').html(input);
-		if (command) this.$('#input').append($('<strong>').html(command));
+		$('#input').html(input);
+		if (command) $('#input').prev().html('roll ' + command + ':');
 	};
 
 	Roll.prototype.setResult = function (result, intermediates) {
-		this.$('#result').html(result);
+		$('#result').html(result);
 		if (Object.keys(intermediates).length > 0) {
-			var $intermediates = this.$('#intermediates').html(''), i = 1;
+			var $intermediates = $('#intermediates').html(''), i = 1;
 			$.each(intermediates, function (key, intermediate) {
 				$intermediates.append(this.intermediateTemplate(intermediate, i++));
 			}.bind(this));
@@ -70,7 +67,7 @@
 					'\n\t' + spaces + '<strong>^</strong>';
 			$output.html(message);
 		}
-		this.$('section').addClass('error').html($message).append($output);
+		$('section').addClass('error').html($message).append($output);
 	};
 
 	Roll.prototype.intermediateTemplate = function (intermediate, index) {
@@ -88,8 +85,7 @@
 	};
 
 	window.onload = function () {
-		var input = chrome.extension.getBackgroundPage().input;
-		var roll = new Roll(dice, input);
+		new Roll(dice, chrome.extension.getBackgroundPage().input);
 		return;
 	};
 })();

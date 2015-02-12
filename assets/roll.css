@@ -27,7 +27,6 @@ header {
 }
 header > *, div > * { vertical-align: middle; margin-right: 0.2em; }
 header > *:last-child, div > *:last-child { margin-right: 0; }
-header strong { margin-left: 0.25em;}
 header span:first-of-type, div span:first-of-type { font-weight: bolder; }
 div:first-of-type {
 	font-size: 1.5em;
@@ -63,11 +62,11 @@ section.error pre em {
 }
 
 /** ColorBrewer Colors (Dark2) **/
-#intermediates .d1 {color: rgb(27,158,119)}
-#intermediates .d2 {color: rgb(217,95,2)}
-#intermediates .d3 {color: rgb(117,112,179)}
-#intermediates .d4 {color: rgb(231,41,138)}
-#intermediates .d5 {color: rgb(102,166,30)}
-#intermediates .d6 {color: rgb(230,171,2)}
-#intermediates .d7 {color: rgb(166,118,29)}
-#intermediates .d8 {color: rgb(102,102,102)}
+#intermediates .d1 { color: rgb(27,158,119); }
+#intermediates .d2 { color: rgb(217,95,2); }
+#intermediates .d3 { color: rgb(117,112,179); }
+#intermediates .d4 { color: rgb(231,41,138); }
+#intermediates .d5 { color: rgb(102,166,30); }
+#intermediates .d6 { color: rgb(230,171,2); }
+#intermediates .d7 { color: rgb(166,118,29); }
+#intermediates .d8 { color: rgb(102,102,102); }
