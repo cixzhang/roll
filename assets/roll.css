@@ -1,0 +1,73 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; width: 100%; margin:0; padding:0; font-size: 16px; }
+body { color: #333; background-color: #BFD4C7; font-family: "Trebuchet MS", "Tahoma", sans-serif; }
+
+section {
+	width: 500px;
+	display: table;
+	position: absolute;
+	top:0; bottom: 0; left: 0; right: 0;
+	margin: auto;
+	padding: 12px;
+	background-color: rgba(255, 255, 255, 0.25);
+	border-radius: 8px;
+	border: 1px solid #B3C7BA;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+
+section > header, section > div, section > pre {
+	padding: 12px;
+	width: 100%;
+	background-color: #FEFEFE;
+}
+
+header {
+	font-size: 1.1em;
+	border-radius: 5px 5px 0 0;
+}
+header > *, div > * { vertical-align: middle; margin-right: 0.2em; }
+header > *:last-child, div > *:last-child { margin-right: 0; }
+header strong { margin-left: 0.25em;}
+header span:first-of-type, div span:first-of-type { font-weight: bolder; }
+div:first-of-type {
+	font-size: 1.5em;
+	text-align: center;
+	background: #E2ECE5;
+}
+div:last-of-type, pre:last-of-type { border-radius: 0 0 5px 5px; }
+
+ul {
+	list-style: none;
+	padding: 0 0.4em;
+	margin: 0.2em 0;
+}
+ul > li { margin-bottom: 0.2em; }
+
+section.error {
+	background-color: rgb(236, 122, 122);
+	border: 1px solid #D16A6A;
+}
+section.error pre {
+	margin: 0;
+	color: #666;
+	background-color: rgba(254, 254, 254, 0.81);
+}
+section.error header strong, section.error pre strong {
+	vertical-align: baseline;
+	color: rgb(236, 122, 122);
+}
+section.error pre em {
+	font-weight: bold;
+	font-style: normal;
+	color: rgb(27,158,119);
+}
+
+/** ColorBrewer Colors (Dark2) **/
+#intermediates .d1 {color: rgb(27,158,119)}
+#intermediates .d2 {color: rgb(217,95,2)}
+#intermediates .d3 {color: rgb(117,112,179)}
+#intermediates .d4 {color: rgb(231,41,138)}
+#intermediates .d5 {color: rgb(102,166,30)}
+#intermediates .d6 {color: rgb(230,171,2)}
+#intermediates .d7 {color: rgb(166,118,29)}
+#intermediates .d8 {color: rgb(102,102,102)}
