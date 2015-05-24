@@ -195,6 +195,27 @@ var dice = (function(){
         }
         return result0;
       }
+
+      function parse_fudge() { // check for fudge dice
+        var result0;
+        
+        result0 = parse_dice();
+        if (result0 === null) {
+          if (/^[fF]/.test(input.charAt(pos))) {
+            result0 = input.charAt(pos);
+          }
+        }
+
+        if (result0 !== null) {
+          pos++;
+        } else {
+          result0 = null;
+          if (reportFailures === 0) {
+            matchFailed("f");
+          }
+        }
+        return result0;
+      }
       
       function parse_dice() {
         var result0, result1, result2;
@@ -226,7 +247,7 @@ var dice = (function(){
           }
         }
         if (result1 !== null) {
-            result2 = parse_dice();
+            result2 = parse_fudge();
             if (result2 !== null) {
               result0 = [result0, result1, result2];
             } else {
@@ -239,12 +260,20 @@ var dice = (function(){
         }
         if (result0 !== null) {
           result0 = (function(offset, left, right) {
-            var sum = 0;
+            var sum = 0, roll;
             intermediates[offset] = {d: right, rolls: []};
-            for (var i = 0; i < left; i++) {
-              var roll = Math.ceil(MT.random()*right);
-              intermediates[offset].rolls.push(roll);
-              sum += roll;
+            if (right == 'F' || right == 'f') { // Fudge dice support
+              for (var i = 0; i < left; i++) {
+                roll = Math.ceil(MT.random()*3) - 2; // -1, 0, 1
+                intermediates[offset].rolls.push(roll < 0 ? '-' : roll > 0 ? '+' : '0');
+                sum += roll;
+              }
+            } else {
+              for (var i = 0; i < left; i++) {
+                roll = Math.ceil(MT.random()*right);
+                intermediates[offset].rolls.push(roll);
+                sum += roll;
+              }
             }
             return sum;
             })(pos0, result0[0], result0[2]);
@@ -264,6 +293,7 @@ var dice = (function(){
         
         result0 = parse_integer();
         if (result0 === null) {
+
           pos0 = pos;
           pos1 = pos;
           if (input.charCodeAt(pos) === 40) {
