@@ -7,26 +7,34 @@
 	};
 
 	Roll.prototype.roll = function (entered) {
-		var words = entered.split(' '),
-				command = words.length > 1 ? words.pop() : '',
-				input = words.join(''),
-				result = this.parse(input),
-				commandInput;
-
 		this.setTitle(entered);
 
-		if (result instanceof Error && !command) { // command
-			command = input;
-	    commandInput = localStorage.getItem(command);
-	    if (commandInput) {
-	    	result = this.parse(input);
-	    	input = commandInput;
-	    }
+		// First, try parsing without spaces
+		var words = entered.split(' '),
+				input = words.join(''),
+				result = this.parse(input),
+				command, commandInput;
+
+		if (result instanceof Error) {
+			command = words.length > 1 ? words.pop() : '';
+			input = words.join('');
+
+			// If the input is one word, check if it's a command.
+			if (!command) {
+				command = input;
+		    commandInput = localStorage.getItem(command);
+		    // Swap with the stored input if the command was stored.
+		    if (commandInput) input = commandInput;
+			}
+
+			result = this.parse(input);
 		}
 
+		// If there's still an error, display it.
 		if (result instanceof Error) {
 			this.displayError(result, input);
 		} else {
+		// Otherwise, store the command (if applicable) and show the results.
 			if (command) localStorage.setItem(command, input);
 			this.setInput(input, command);
 			this.setResult(result, this.dice.intermediates);
