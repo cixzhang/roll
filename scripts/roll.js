@@ -10,14 +10,18 @@
 		var words = entered.split(' '),
 				command = words.length > 1 ? words.pop() : '',
 				input = words.join(''),
-				result = this.parse(input);
+				result = this.parse(input),
+				commandInput;
 
 		this.setTitle(entered);
 
 		if (result instanceof Error && !command) { // command
 			command = input;
-	    input = localStorage.getItem(command);
-	    if (input) result = this.parse(input);
+	    commandInput = localStorage.getItem(command);
+	    if (commandInput) {
+	    	result = this.parse(input);
+	    	input = commandInput;
+	    }
 		}
 
 		if (result instanceof Error) {
