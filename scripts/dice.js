@@ -204,12 +204,13 @@ var dice = (function(){
           if (/^[fF]/.test(input.charAt(pos))) {
             result0 = input.charAt(pos);
           }
+
+          if (result0 !== null) {
+            pos++;
+          }
         }
 
-        if (result0 !== null) {
-          pos++;
-        } else {
-          result0 = null;
+        if (result0 === null) {
           if (reportFailures === 0) {
             matchFailed("f");
           }
