@@ -1,0 +1,22 @@
+{
+  "name": "roll",
+  "version": "2.2.3",
+  "description": "Roll any-sided dice in Chrome's Omnibox using dice notation.",
+  "main": "background.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cixzhang/Roll.git"
+  },
+  "keywords": [
+    "roll"
+  ],
+  "author": "Cindy Zhang",
+  "bugs": {
+    "url": "https://github.com/cixzhang/Roll/issues"
+  },
+  "homepage": "https://github.com/cixzhang/Roll",
+  "dependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5"
+  }
+}
