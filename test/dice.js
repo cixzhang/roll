@@ -1,7 +1,5 @@
-MersenneTwister = require('../lib/scripts/mersenne-twister.js');
-
 var expect = require('chai').expect,
-    Dice = require('../lib/scripts/dice');
+    Dice = require('../lib/dice/dice');
 
 describe('a dice parser', function () {
 
