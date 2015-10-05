@@ -44,7 +44,7 @@ header > * {
 	flex: 0 0 auto;
 }
 
-header > *, div > * { vertical-align: middle; margin-right: 0.2em; }
+header > *, div > * { vertical-align: middle; }
 header > *:last-child, div > *:last-child { margin-right: 0; }
 header span:first-of-type { font-weight: bolder; }
 
