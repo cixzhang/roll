@@ -16,12 +16,12 @@ describe('a dice parser', function () {
   });
 
   it('can perform multiple rolls', function () {
-    var result = Dice.parse('1d20+1d4');
+    var result = Dice.parse('1d20+2d4');
     expect(result).to.be.a('number');
   });
 
   it('can parse fudge dice', function () {
-    var result = Dice.parse('4df');
+    var result = Dice.parse('1d20+4df');
     expect(result).to.be.a('number');
   });
 

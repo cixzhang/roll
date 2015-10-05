@@ -1,6 +1,6 @@
 {
   "name": "roll",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "description": "Roll any-sided dice in Chrome's Omnibox using dice notation.",
   "main": "background.js",
   "repository": {
@@ -15,8 +15,15 @@
     "url": "https://github.com/cixzhang/Roll/issues"
   },
   "homepage": "https://github.com/cixzhang/Roll",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "compile": "handlebars lib/templates/*.handlebars -f lib/templates/templates.js",
+    "build": "npm run compile && browserify lib/roll.js > dist/roll.js"
+  },
   "dependencies": {
     "chai": "^3.0.0",
-    "mocha": "^2.2.5"
+    "handlebars": "^4.0.3",
+    "mocha": "^2.2.5",
+    "stringify": "^3.1.0"
   }
 }

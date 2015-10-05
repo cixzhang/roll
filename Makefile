@@ -1,13 +1,22 @@
 all: clean dist
 
 dist:
-	cp -r lib dist
+	-mkdir dist
 	cp manifest.json dist
+	cp -r assets dist/assets
+	cp -r vendor dist/vendor
+	cp lib/background.js dist
+	cp lib/roll.html dist
+	npm run build
+
+roll.zip: clean dist
+	zip -r roll.zip dist
 
 clean:
-	-rm -rf dist
+	-rm -r dist
+	-rm lib/templates/templates.js
 
 test:
-	./node_modules/.bin/mocha --reporter spec
+	npm run test
 
 .PHONY: test clean

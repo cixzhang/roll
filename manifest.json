@@ -1,6 +1,6 @@
 {
   "name": "roll",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "manifest_version": 2,
   "description": "Roll any-sided dice in Chrome's Omnibox using dice notation.",
   "omnibox": { "keyword" : "roll" },
