@@ -15,6 +15,7 @@ roll.zip: clean dist
 clean:
 	-rm -r dist
 	-rm lib/templates/templates.js
+	-rm roll.zip
 
 test:
 	npm run test
