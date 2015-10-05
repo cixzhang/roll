@@ -70,7 +70,7 @@ ul > li { margin-bottom: 0.2em; }
 
 #roll-input {
 	border: 1px solid #DDDDDD;
-	border-radius: 5px;
+	border-radius: 8px;
 	padding: 0 8px;
 	height: 30px;
 	margin: 0 5px;
@@ -80,7 +80,7 @@ ul > li { margin-bottom: 0.2em; }
 
 #roll-reroll {
 	border: none;
-	border-radius: 5px;
+	border-radius: 8px;
 	width: 3em;
 	height: 30px;
 	background-color: rgba(191,212,199,0.5);
