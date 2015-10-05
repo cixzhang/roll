@@ -59,7 +59,7 @@ ul > li { margin-bottom: 0.2em; }
 	font-size: 1.5em;
 	line-height: 1.21;
 	text-align: center;
-	background: #E2ECE5;
+	background-color: rgba(254, 254, 254, 0.5);
 }
 
 #roll-form {
