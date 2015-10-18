@@ -1,6 +1,6 @@
 {
   "name": "roll",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Roll any-sided dice in Chrome's Omnibox using dice notation.",
   "main": "background.js",
   "repository": {
