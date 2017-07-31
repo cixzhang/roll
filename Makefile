@@ -5,7 +5,6 @@ dist:
 	cp manifest.json dist
 	cp -r assets dist/assets
 	cp -r vendor dist/vendor
-	cp lib/background.js dist
 	cp lib/roll.html dist
 	npm run build
 

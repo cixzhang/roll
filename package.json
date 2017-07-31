@@ -18,7 +18,7 @@
   "scripts": {
     "test": "mocha --reporter spec",
     "compile": "handlebars lib/templates/*.handlebars -f lib/templates/templates.js",
-    "build": "npm run compile && browserify lib/roll.js > dist/roll.js"
+    "build": "npm run compile && browserify lib/view.js > dist/view.js && browserify lib/background.js > dist/background.js"
   },
   "dependencies": {
     "chai": "^3.0.0",
