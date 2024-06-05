@@ -1,31 +1,32 @@
 {
   "name": "roll",
-  "version": "2.4.0",
-  "manifest_version": 2,
+  "version": "2.4.1",
+  "manifest_version": 3,
   "description": "Roll any-sided dice in Chrome's Omnibox using dice notation.",
-  "omnibox": { "keyword" : "roll" },
+  "omnibox": { "keyword": "roll" },
   "icons": {
     "16": "assets/images/roll16.png",
     "48": "assets/images/roll48.png",
     "128": "assets/images/roll128.png"
-   },
+  },
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-   },
-  "permissions": [],
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage"],
   "web_accessible_resources": [
-    "assets/*",
-    "scripts/*.js",
-    "roll.html"
+    {
+      "resources": ["assets/*", "scripts/*.js", "roll.html"],
+      "matches": ["*://*/*"]
+    }
   ],
-  "browser_action": {
+  "action": {
     "default_title": "Roll",
     "default_icon": {
       "16": "assets/images/roll16.png",
       "48": "assets/images/roll48.png",
       "128": "assets/images/roll128.png"
-     },
+    },
     "default_popup": "roll.html"
   }
 }
